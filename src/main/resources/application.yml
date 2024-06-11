@@ -1,0 +1,52 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ENC(L8RRKil+hVUURzy/u8Lp7UXlZCYoEUs23J/Pc8c8/efIY9bWPznPo/nQtMqgFl3UZ6yc4xS8XQIWyXMXj+ASHfzl7qGcOo5ArtdhGX+dozT2SGbFbWE9ZwfrDCAChAM8)
+    username: ENC(QLXHCDZD71aGqxjN1etMM4mraUD7jGwAzPh6TF47h00WElMprKjMCzr1Y3stVdHu)
+    password: ENC(B8fzaqAHXDhxTI50AI+q0z7BhB+04S+Td7StDBst2cNfsIfwR4MXiYhISJ3FiGh0)
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        show_sql: true
+        format_sql: true
+
+  data:
+    web:
+      pageable:
+        max-page-size: 10
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ENC(srGqOyipeKUjTXdPo81avzIwqoB1qdzCw6cfub1hlDaWoyZig8ZKbrrWPcHwb0yNXljSXpt0XmkNUw3nU1ZBuxwOTsM+CVM9+tNCEi/qFgkCVnV69vgzeZnVLcwPxxW3s+7hAZbfcdTSAwT2H5qafg==)
+            client-secret: ENC(/dom7kaJuMHGkXEicVEzzTumgRVhoby+2u9KifW5jSj5wSWTgcLsQrlAOvjb4oJgWsxO3WADpWsEL1XdTdPApOdfZW6WyUesXjCTJGIQ9KI=)
+
+  session:
+    timeout: 5m
+    store-type: jdbc
+    jdbc:
+      initialize-schema: always
+      cleanup-cron: 0 */2 * * * *
+
+
+jasypt:
+  encryptor:
+    bean: jasyptEncryptorAES
+
+
+naver:
+  cliendId: ENC(d16sagRQ1twlQTRQZYBolnTmDfkfoWo9rnzcdHJaPFR7wC4fm2M8uD1gNtnTQrvdU7fz0Kpj2xBu5t4xRqfd+w==)
+  clientSecret: ENC(2Y6/JmJXJvNgT8ToH6VCkq05UEPqaloS8XVQMgrm83C6LpdXe9xAsDDLyRJeWK40)
+  apiUrl: https://openapi.naver.com
+  displayLen: 30
